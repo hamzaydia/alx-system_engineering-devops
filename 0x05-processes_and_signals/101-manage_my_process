@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# Manages manage_my_process script (start, stop, restart)
+# Store PID and print message on start
 
-if [ "$1" == "start" ]
-then
-  ./manage_my_process &
-  echo $$ > /var/run/my_process.pid
-  echo "Process started"
-else
-  echo "Usage: manage_my_process {start|stop|restart}"
-fi
+terminator() { rm /var/run/myscript.pid; exit; }
+
+echo "$$" > /var/run/myscript.pid
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+  trap 'echo "Y U no love me?!"' SIGINT
+  trap 'echo "I hate the kill command" && terminator' SIGTERM
+  trap 'terminator' SIGQUIT
+done
