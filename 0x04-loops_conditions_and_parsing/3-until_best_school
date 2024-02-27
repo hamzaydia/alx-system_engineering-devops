@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Display "Best School" ten times
+
+c=0
+
+until [ $c -eq 10 ]
+do
+	echo "Best School"
+	(( c++ ))
+done
