@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display the content of the current directory in list format
+# Show only after first dash
+
+myli=$(ls)
+for i in $myli; do
+	echo "$i" | cut -d '-' -f2
+done
