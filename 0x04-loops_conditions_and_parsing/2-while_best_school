@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Display "Holberton School" ten times
+
+c=0
+
+while [ $c -lt 10 ]
+do
+	echo "Best School"
+	(( c++ ))
+done
