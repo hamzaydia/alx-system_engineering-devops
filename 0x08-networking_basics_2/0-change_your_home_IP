@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+TMPFILE=$(mktemp)
+
+echo "127.0.0.2		localhost" >> "$TMPFILE"
+echo "8.8.8.8		facebook.com" >> "$TMPFILE"
+
+cat /etc/hosts >> "$TMPFILE"
+
+mv -f "$TMPFILE" /etc/hosts
+rm -f "$TMPFILE"
